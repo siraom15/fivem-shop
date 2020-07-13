@@ -7,6 +7,11 @@
     <p>เงินใน bank :<?php echo getPlayerBankmoney($steamprofile['steamid64']); ?> บาท</p>
     <p>อาชีพ : <?php echo getPlayerJob($steamprofile['steamid64']); ?></p>
     <hr>
-    <p>เงินในเว็บ : <?php echo getPlayerWebMoney($steamprofile['steamid64']); ?> บาท</p>
+    <p>เงินในเว็บ : <span id="webMoney"><?php echo getPlayerWebMoney($steamprofile['steamid64']); ?></span> บาท</p>
     </div>
 </div>
+<script>
+  setInterval(function(){
+    $('#webMoney').load('system/getPlayerWebMoney.php');
+}, 1000);
+</script>

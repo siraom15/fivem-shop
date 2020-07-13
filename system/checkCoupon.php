@@ -12,14 +12,14 @@
                 if($status==1){
                     $res = updateCoupon($row['id']);
                     if($res==1){
-                        echo "<script>alert('ใช้งาน coupon : ".$row['value'] . " บาท')</script>";
-                        header("Refresh:0; url=../index.php?page=topup");
+                        echo $row['value'];
+                        
                     }
                 }
             }
         }else{
-            echo "<script>alert('ไม่มีคูปองนี้')</script>";
-            header("Refresh:0; url=../index.php?page=topup");
+            echo "0";
+            
 
         }
     }

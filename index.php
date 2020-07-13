@@ -1,6 +1,8 @@
 <?php 
+  require ('config.php');
   require ('steamauth/steamauth.php');
   require ('system/function.php');
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +15,19 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/jquery.sweet-modal.min.css" />
   
   <!-- JS, Popper.js, and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/52f6283ccc.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
+  <script src="./assets/js/jquery.sweet-modal.min.js"></script>
+  
 </head>
 
 <body class="kanit bg-fivem">
@@ -51,7 +57,7 @@
       เข้าสู่ระบบ &nbsp;</a>
     <?php 
     } ?>
-    <a href="?page=howtoplay" class="text-white"><i class="fas fa-info-circle"></i> วิธีเล่น &nbsp;</a>
+    <!-- <a href="?page=howtoplay" class="text-white"><i class="fas fa-info-circle"></i> วิธีเล่น &nbsp;</a> -->
   </nav>
   <?php 
     if(!isset($_SESSION['steamid'])){
@@ -138,6 +144,7 @@
     </div>
   </div>
 </body>
+
 
 
 </html>

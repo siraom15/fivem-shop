@@ -110,19 +110,32 @@
     }
 
     function buyItem($steamid, $item, $price){
-        if(getPlayerWebMoney($steamid)>$price){
+        if(getPlayerWebMoney($steamid)>=$price){
             require('sql.php');
-
-        $sql = sprintf('UPDATE users SET web_money = web_money - "%s" WHERE identifier = "%s" ',$price, $steamid);
-        // echo $sql;
-        if ($conn->query($sql) === TRUE) {
-            return 1;
-          } else {
-            return 0;
-          }
-        $conn->close();
+            $sql = sprintf('UPDATE users SET web_money = web_money - "%s" WHERE identifier = "%s" ',$price, $steamid);
+                if ($conn->query($sql) === TRUE) {
+                    $addItemStatus = addItemToPlayer($steamid, $item, 1);
+                    if($addItemStatus==TRUE){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                } else {
+                    return 0;
+                }
+            $conn->close();
         }else{
-            return 3;
+            return 0;
+        }
+    }
+
+    function addItemToPlayer($steamid, $item, $value){
+        require('sql.php');
+        $sql = sprintf('UPDATE user_inventory SET count = count + "%s" WHERE identifier = "%s" AND item = "%s" ',$value, $steamid, $item);
+        if($conn->query($sql)===TRUE){
+            return 1;
+        }else{
+            return 0;
         }
     }
 
@@ -168,5 +181,64 @@
         $result = $conn->query($sql);
         return $result;
         $conn->close();
+    }
+
+    function getWebItems(){
+        require('sql.php');
+        $sql = sprintf("SELECT * FROM web_items");
+        $result = $conn->query($sql);
+        return $result;
+        $conn->close();
+    }
+
+    function getWebItemPrice($itemName){
+        require('sql.php');
+        $sql = sprintf("SELECT * FROM web_items WHERE items_name = '%s'", $itemName);
+        $result = $conn->query($sql);
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                return $row['price'];
+            }
+        }
+        else{
+             return 0;
+        }
+        $conn->close();
+    }
+
+    function deleteWebItem($itemID){
+        require('sql.php');
+        $sql = sprintf("DELETE FROM web_items WHERE id = '%s'", $itemID);
+        $result = $conn->query($sql);
+        if($result===TRUE){
+            return 1;
+        }else{
+            return 0;
+        }
+        $conn->close();
+    }
+    function deleteCouponItem($couponID){
+        require('sql.php');
+        $sql = sprintf("DELETE FROM coupon WHERE id = '%s'", $couponID);
+        $result = $conn->query($sql);
+        if($result===TRUE){
+            return 1;
+        }else{
+            return 0;
+        }
+        $conn->close();
+    }
+
+    function addWebItem($label, $itemName, $price){
+        require('sql.php');
+        $sql = sprintf("INSERT INTO web_items (label, items_name, price) VALUE ('%s', '%s', '%s')", $label, $itemName, $price);
+        $result = $conn->query($sql);
+        if($result===TRUE){
+            return 1;
+        }else{
+            return 0;
+        }
+        $conn->close();
+
     }
 ?>

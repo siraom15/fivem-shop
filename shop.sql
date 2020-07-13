@@ -58,6 +58,35 @@ COMMIT;
 
 
 ALTER TABLE `users` ADD `web_money` INT(255) NOT NULL AFTER `bank`;
+COMMIT;
+
+CREATE TABLE `web_items` (
+  `id` int(12) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `items_name` varchar(255) NOT NULL,
+  `price` int(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `web_items`
+--
+ALTER TABLE `web_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `web_items`
+--
+ALTER TABLE `web_items`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
