@@ -2,7 +2,9 @@
 ## วิธีใช้งาน 
 * Clone / Download Repo นี้
 * ลง Sql
-* เปลี่ยน database name และ steam api ในไฟล์ config.php
+* เปลี่ยน database name ในไฟล์ system/sql.php
+* เปลี่ยน steam api ในไฟล์ config.php
+
 ## ฟังก์ชัน 
 * Login ด้วย Steam
 * ระบบ Item ในตัว
