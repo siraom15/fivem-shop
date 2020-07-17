@@ -19,7 +19,7 @@
         $.ajax({
                     url: 'system/checkCoupon.php',
                     type: 'POST',
-                    data: { "coupon": couponCode },
+                    data: { "coupon": couponCode,  },
                     success: function (data) {
                         if (data != 0) {
                             $.sweetModal({
@@ -43,3 +43,34 @@
         $("#couponCode").val("");
     })
 </script>
+
+<hr>
+
+<!-- <div class="h4">เติมเงินในเกม</div>
+<div class="row">
+    <div class="card" style="width: 18rem;">
+    <img src="./assets/img/money.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">100,000</h5>
+        <p class="card-text">ราคา 100 บาท</p>
+        <a href="#" class="btn btn-primary" onclick="buyMoney();">ซื้อ</a>
+    </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+  <img src="./assets/img/money.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">500,000</h5>
+    <p class="card-text">ราคา 400 บาท</p>
+    <a href="#" class="btn btn-primary" onclick="buyMoney();">ซื้อ</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="./assets/img/money.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">1,000,000</h5>
+    <p class="card-text">ราคา 800 บาท </p>
+    <a href="#" class="btn btn-primary" onclick="buyMoney();">ซื้อ</a>
+  </div>
+</div>
+
+</div> -->

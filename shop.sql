@@ -33,6 +33,7 @@ CREATE TABLE `coupon` (
   `code` varchar(10) NOT NULL,
   `value` int(255) NOT NULL,
   `isUse` int(255) NOT NULL
+  `usedBy` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -62,7 +63,6 @@ COMMIT;
 
 CREATE TABLE `web_items` (
   `id` int(12) NOT NULL,
-  `label` varchar(255) NOT NULL,
   `items_name` varchar(255) NOT NULL,
   `price` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

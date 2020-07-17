@@ -10,7 +10,7 @@
                 // echo "coupon : ".$row['value'] . "บาท";
                 $status = addWebMoneyToPlayer($row['value'],$_SESSION['steamid64']);
                 if($status==1){
-                    $res = updateCoupon($row['id']);
+                    $res = updateCoupon($row['id'],$_SESSION['steamid64']);
                     if($res==1){
                         echo $row['value'];
                         

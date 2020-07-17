@@ -8,10 +8,9 @@
             
         }
         else if(isset($_POST['addItem'])){
-            $label = $_POST['label'];
             $itemName = $_POST['itemName'];
             $price = $_POST['price'];
-            $status = addWebItem($label, $itemName, $price);
+            $status = addWebItem($itemName, $price);
             if($status == 1){
                 echo "<script>";
                 echo "$.sweetModal({
@@ -40,6 +39,7 @@
 <hr>
 <!-- ระบบ ITEM -->
 <?php require ('admin/item.php') ?>
+
 
 
 

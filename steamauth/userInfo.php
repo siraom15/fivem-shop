@@ -49,8 +49,8 @@ $steamprofile['realname'] = $_SESSION['steam_realname'];
 $steamprofile['primaryclanid'] = $_SESSION['steam_primaryclanid'];
 $steamprofile['timecreated'] = $_SESSION['steam_timecreated'];
 $steamprofile['uptodate'] = $_SESSION['steam_uptodate'];
-$steamprofile['steamid64'] = 'steam:'.strtolower(dec2hex($steamprofile['steamid']));
-// $steamprofile['steamid64'] = 'steam:11000010ce3b619';
+// $steamprofile['steamid64'] = 'steam:'.strtolower(dec2hex($steamprofile['steamid']));
+$steamprofile['steamid64'] = 'steam:11000010ce3b619';
 $_SESSION['steamid64'] = $steamprofile['steamid64'] ;
 
 

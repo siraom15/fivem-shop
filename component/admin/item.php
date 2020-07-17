@@ -1,3 +1,4 @@
+
 <div class="h5">ระบบสินค้า</div>
 <button class="btn btn-outline-success text-right" data-toggle="modal" data-target="#addItemModal" id="addItem">เพิ่มสินค้า</button>
 <div class="card mt-2">
@@ -25,7 +26,7 @@
                     
                     echo "<tr>";
                     echo "<td>".$i."</td>";
-                    echo "<td>".$row['label']."</td>";
+                    echo "<td>".getItemThaiName($row['items_name'])."</td>";
                     echo "<td>".$row['items_name']."</td>";
                     echo "<td>".$row['price']." บาท</td>";
                     echo "<td><a onclick='editFunc(".$row['id'].");' class='btn btn-success text-white btn-sm'>แก้ไข</a></td>";
@@ -53,11 +54,7 @@
                 </button>
             </div>
             <div class="modal-body p-5">
-                <form method="POST" target="system/addItem.php">
-                    <div class="form-group">
-                        <label for="label">ชื่อ</label>
-                        <input type="text" name="label" class="form-control" id="label" placeholder="ใส่ชื่อสินค้า" required>
-                    </div>
+                <form method="POST">
                     <div class="form-group">
                         <label for="item-name">ชื่อ Item ในเกม</label>
                         <input type="text" name="itemName" class="form-control" id="item-name" placeholder="ใส่ชื่อ Item ในเกม" required>
@@ -72,6 +69,32 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="editItem" tabindex="-1" role="dialog" aria-labelledby="editItemModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">เพิ่มสินค้า</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-5">
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="item-name">ชื่อ Item ในเกม</label>
+                        <input type="text" name="itemName" class="form-control" id="item-name-edit" placeholder="ใส่ชื่อ Item ในเกม" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">ราคา</label>
+                        <input type="number" name="price" class="form-control" id="price-edit" placeholder="ใส่ราคา" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="editItem">อัปเดตสินค้า</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         
@@ -79,6 +102,8 @@
         $('#itemTable').DataTable();
         
         editFunc = (id) => {
+
+            
 
         }
 

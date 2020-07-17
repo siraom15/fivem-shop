@@ -97,9 +97,9 @@
         }
         $conn->close();
     }
-    function updateCoupon($couponId){
+    function updateCoupon($couponId, $steamid){
         require('sql.php');
-        $sql = sprintf("UPDATE coupon SET isUse = 1 WHERE id = '%s' ", $couponId);
+        $sql = sprintf("UPDATE coupon SET isUse = 1, usedBy = '%s' WHERE id = '%s' ", $steamid, $couponId);
         if ($conn->query($sql) === TRUE) {
             return 1;
           } else {
@@ -229,9 +229,9 @@
         $conn->close();
     }
 
-    function addWebItem($label, $itemName, $price){
+    function addWebItem($itemName, $price){
         require('sql.php');
-        $sql = sprintf("INSERT INTO web_items (label, items_name, price) VALUE ('%s', '%s', '%s')", $label, $itemName, $price);
+        $sql = sprintf("INSERT INTO web_items (items_name, price) VALUE ('%s', '%s')", $itemName, $price);
         $result = $conn->query($sql);
         if($result===TRUE){
             return 1;

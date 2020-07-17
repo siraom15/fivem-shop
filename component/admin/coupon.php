@@ -52,7 +52,7 @@
             <div class="modal-body ">
             <form action="" method="post">
             <div class="form-group">
-                <input type="number" name="value" id="" class="form-control" required placeholder="ใส่ราคาคูปอง" min="0"
+                <input type="number" name="value" id="" class="form-control" required placeholder="ใส่ราคาคูปอง 1-1000 บาท" min="1"
                     max="1000">
             </div>
             <button type="submit" class="btn btn-outline-success">เพิ่ม coupon</button>
@@ -79,7 +79,7 @@
                             $.sweetModal({
                                 content: 'ลบสำเร็จ',
                                 icon: $.sweetModal.ICON_SUCCESS
-
+                                
                             });
                         }
                         else {

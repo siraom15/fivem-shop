@@ -41,23 +41,25 @@
     <img src="https://imgur.com/m7jsXQM.png" alt="" srcset="" height="20%">
     <?php if(isset($_SESSION['steamid'])){
       include ('steamauth/userInfo.php');
+      if(getPlayerGroup($steamprofile['steamid64'])=='superadmin'){
+        echo '<a href="?page=admin" class="text-white"><i class="fas fa-user-shield"></i>
+        ระบบแอดมิน &nbsp;</a>';
+      }
     ?>
-    <a href="?logout" class="text-white"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ &nbsp;</a>
     <a href="index.php" class="text-white"><i class="fas fa-user"></i>
       ข้อมูลส่วนตัว &nbsp;</a>
+    <a href="?logout" class="text-white"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ &nbsp;</a>
+    
     <?php
-    if(getPlayerGroup($steamprofile['steamid64'])=='superadmin'){
-      echo '<a href="?page=admin" class="text-white"><i class="fas fa-user"></i>
-      ระบบแอดมิน &nbsp;</a>';
-    }
+    
     }else{
       ?>
 
-    <a data-toggle="modal" href="#" data-target="#exampleModal" class="text-white"><i class="fas fa-home"></i>
+    <a data-toggle="modal" href="#" data-target="#exampleModal" class="text-white"><i class="fas fa-sign-in-alt"></i>
       เข้าสู่ระบบ &nbsp;</a>
     <?php 
     } ?>
-    <!-- <a href="?page=howtoplay" class="text-white"><i class="fas fa-info-circle"></i> วิธีเล่น &nbsp;</a> -->
+    <a href="?page=howtoplay" class="text-white"><i class="fas fa-info-circle"></i> วิธีเล่น &nbsp;</a>
   </nav>
   <?php 
     if(!isset($_SESSION['steamid'])){
@@ -103,12 +105,12 @@
                 if(getPlayerGroup($steamprofile['steamid64'])=='superadmin'){
                     require ('component/admin.php');
                 }else{
-                  require ('component/showInventory2.php');
+                  require ('component/showInventory.php');
                 }
               }
 
             }else{
-              require('component/showInventory2.php');
+              require('component/showInventory.php');
             }
         ?>
           </div>

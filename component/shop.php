@@ -21,7 +21,7 @@
             <div class="card" style="width: 10rem;">
                 <img src="./assets/img/items/<?php echo $row['items_name'] ?>.png" alt="" srcset="" class="img-fluid card-img-top">
                 <div class="card-body">
-                    <div class="h5 card-title"><?php echo $row['label'] ?></div>
+                    <div class="h5 card-title"><?php echo getItemThaiName($row['items_name']) ?></div>
                     <div class="p card-text">ราคา : <?php echo $row['price'] ?> บาท</div>
                     <hr>
                     <button type="submit" class="btn btn-outline-success btn-sm" onclick="buy('<?php echo $row['items_name']; ?>')">ซื้อสิ่งนี้</button>
